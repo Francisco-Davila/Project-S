@@ -1,0 +1,32 @@
+<h2 class="title">Your Spotify Playlists</h2>
+
+<div *ngIf="progress.active" class="progress-box">
+  <p>
+    Just Downloaded: <strong>{{ progress.currentSong }}</strong><br />
+    {{ progress.currentIndex }} / {{ progress.total }} songs
+  </p>
+  <progress [value]="progress.percent" max="100"></progress>
+</div>
+
+<div *ngFor="let playlist of playlists" class="playlist-container">
+  <div class="playlist" (click)="toggle(playlist)">
+    🎵 {{ playlist.name }}
+    <button class="btn-download" (click)="downloadPlaylist(playlist); $event.stopPropagation()">
+      Download Playlist
+    </button>
+  </div>
+
+  <ul *ngIf="playlist.expanded">
+    <li *ngFor="let track of playlist.tracks" class="track-item">
+      <input type="checkbox" [checked]="track.downloaded" disabled />
+      {{ track.name }} by {{ track.artist }}
+      <button
+        class="btn-download"
+        (click)="download(track); $event.stopPropagation()"
+        [disabled]="track.downloading"
+      >
+        {{ track.downloading ? 'Downloading...' : 'Download' }}
+      </button>
+    </li>
+  </ul>
+</div>

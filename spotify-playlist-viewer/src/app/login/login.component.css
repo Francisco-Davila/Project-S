@@ -1,0 +1,30 @@
+body {
+  background-color: #121212;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: white;
+}
+
+.center {
+  text-align: center;
+  margin-top: 150px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1db954;
+}
+
+.login-btn {
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.login-btn:hover {
+  background-color: #1ed760;
+}

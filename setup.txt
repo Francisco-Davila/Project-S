@@ -1,0 +1,7 @@
+under main Fowlder
+pip install
+uvicorn main:app --reload
+
+under the spotify playist viewer 
+ng install
+ng serve
